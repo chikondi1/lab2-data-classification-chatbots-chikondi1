@@ -20,19 +20,17 @@ def feelTemp(x):
 feelTemp(x = int(input('Enter temperature: ')))
 
 #This code allows a user to interact with a chatbot at a bar to see if they can get a drink.
-
-name = input("Bot: Hello and welcome to Club Colab! What is your name? ")
+name = input("Bot: Hello and welcome to Club Colab! What is your name? ") #allows user to input a string value when prompted
 print("You:", name)
-print("Bot: Hi", name,". Please enter your age if you would like a drink") #I wrote about drinks because I was talking about mojitos with my friend and suddenly when I tried it with writing drinks I finally got the code right so I left it like that.
+print("Bot: Hi", name,". Please enter your age if you would like a drink.") #bot uses string value input by user
 
-age(x = int(input("You: "))) #I wanted to add a section where the user could choose yes or no if they wanted a drink but I found this part difficult to code, because one would proceed to the next step, and the other wouldn't. I'm still trying to figure out how to do this. 
+#this function allows the bot to respond to the user if they are underage or if they are of age to get a drink.
+class Age:
+  def age(x): 
+    if x > 20: #if age is over 20 then they will be met with a positive respond
+      print("Bot: Over 21. Please grab your drink from the bar!")
+    elif x < 20: #if age is below 21, they will be told to wait and it will show how many years to wait until they can get a drink
+      x = 21-x
+      print("Bot: Under 21. Sorry, please wait", x, "more years to have a drink from our bar.")
 
-#Writing this part of the code where you select your age was the easiest part for me (although not easy), because it had to do with integers, which we'd used before.
-def age(x): 
-  if x > 20:
-    print("Bot: Over 21. Please grab your drink from the bar!")
-  elif x < 20:
-    x = 21-x
-    print("Bot: Under 21. Sorry, please wait", x, "more years to have a drink from our bar.")
-
-#I wanted to code an option so that if someone did not type an integer, it would say "sorry try again", and I tried and looked at quite a few other sources, but I couldn't figure it out.
+age(x = int(input("You: ")))
